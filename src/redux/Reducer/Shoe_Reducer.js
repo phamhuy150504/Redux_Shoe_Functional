@@ -26,9 +26,11 @@ const ShoeReducer = (state=stateShoe, action) => {
         case INCREASE_REDUCER : {
             let cloneCart = [...state.cartShoe]
             let index = cloneCart.findIndex(shoe => shoe.id === action.id)
-            if(index !== -1) {
-                action.result ? cloneCart[index].soLuong++ : cloneCart[index].soLuong === 1 ?  cloneCart[index].soLuong = 1 : cloneCart[index].soLuong--
-            }
+          
+            index !== -1 && action.result 
+            ? cloneCart[index].soLuong++ : cloneCart[index].soLuong === 1 
+            ? cloneCart[index].soLuong = 1 : cloneCart[index].soLuong--
+            
             return {...state, cartShoe: cloneCart}
         }
         default : {
