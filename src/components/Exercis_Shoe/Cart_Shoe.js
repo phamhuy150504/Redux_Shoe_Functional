@@ -10,16 +10,16 @@ export default function Cart_Shoe(props) {
 
     const renderCart = () => {
         return cartShoe.map((shoe, index) => {
-            let {id, name, price, image, soLuong} = shoe
+            let {id, name, price, image, amount} = shoe
             return (
             <tr key={index}>
                 <td>{id}</td>
                 <td>{name}</td>
                 <td><button onClick={() => dispatchIncreaseReduced(increaseReducer(id, false))}  className='btn btn-success'>-</button>
-                    <strong>{soLuong}</strong>
+                    <strong>{amount}</strong>
                     <button onClick={() => dispatchIncreaseReduced(increaseReducer(id, true))}  className='btn btn-success'>+</button>
                 </td>
-                <td>{price * soLuong}</td>
+                <td>{price * amount}</td>
                 <td><img src={image} style={{width: 75, height: 100}} alt="image_moadal" /></td>
                 <td><button onClick={() => dispatchRemove(removeShoe(id))} className="btn btn-danger">Remove</button></td>
             </tr>
